@@ -101,16 +101,16 @@ Final Memory Layout
 
 Since we have 8 blocks, the total quantized representation for the layer is:
 
-| Section |	Size (Bytes) |
+| Section |	Size in Bytes |
 |--------------|------------------------------------|
-| Quantized Weights |	128×8=1024 |
-| Sub-Block Scales and Offset |	12×8=96 |
-| Block-Wide Scale and Offset | 	4×8=32 |
+| Quantized Weights |	128×8=1024 bytes |
+| Sub-Block Scales and Offset |	12×8=96 bytes |
+| Block-Wide Scale and Offset | 	4×8=32 bytes |
 | Total  |	1152 bytes |
 
 ## Comparison: Before and After Quantization
 
-| Data |	Format |	Total Size (Bytes)|
+| Data |	Format |	Total Size in Bytes|
 |--------------|------------------------------------|------------|
 | Original Floating-Point Weights |	BF16 (16 bits) |	4096 bytes|
 | Quantized Weights (Q4_K) |	Q4_K |	1152 bytes|
