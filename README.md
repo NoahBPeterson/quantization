@@ -1,6 +1,6 @@
 # Model Quantization Documentation
 
-We're two years into a cambrian explosion of open machine learning model releases. Among all of the new discoveries and inventions, quantization is among the more useful, allowing large models to be compressed and run on common consumer hardware. I could not find a comprehensive explanation of what it is, how it works, its limitations, or a comparison of different types of quantization, so I started this repository so that others may find it useful.
+Quantization is among the more useful recent innovations in machine learning model inference, allowing large models to be compressed and run on common consumer hardware. I could not find a comprehensive explanation of what it is, how it works, its limitations, or a comparison of different types of quantization, so I started this repository so that others may find it useful.
 
 Maarten Grootendorst wrote a great but general overview with plenty of visual aids to describe quantization, the problems it solves, and some of the problems that occur with quantization: [A Visual Guide to Quantization](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization)
 
@@ -16,18 +16,17 @@ Generally, to lower the amount of memory needed to run a model.
 
 #### To Overcome Memory Limitations
 
-A typical open-weights model like Llama 3.1 8b-instruct bf16 model is 16 gigabytes, which only [7%](https://store.steampowered.com/hwsurvey/Steam-Hardware-Software-Survey-Welcome-to-Steam) of users can run. However, by quantizing the weights to the Q6_K format, the model can be reduced to 6.6 gigabytes, which is small enough for 64% of users to run. Without quantization, someone with 8 GB of graphics memory could not run this model on their own graphics card.
+A typical open-weights model like the Llama 3.1 8b-instruct BF16 model is 16 gigabytes, which only [7%](https://store.steampowered.com/hwsurvey/Steam-Hardware-Software-Survey-Welcome-to-Steam) of users can run. However, by quantizing the weights to the Q6_K format, the model can be reduced to 6.6 gigabytes, which is small enough for 64% of users to run. With quantization, the median graphics card owner with at least 8 GB of graphics memory can now run this model on their own hardware.
 
 #### To Increase Processing and Generation Speed
 
 Memory bandwidth is most often the bottleneck when running models, as the entire model is used for processing input. By reducing model size, it takes less time for layers to load.
 
-By reducing the amount of memory needed to run a model, overall throughput can be greater by allowing a larger batch size, and latency (time to first token) can be reduced.
+By reducing the amount of memory needed to run a model, overall throughput can be increased by allowing a larger batch size, and latency (time to first token) can be reduced.
 
 #### To Increase Context Length
 
 Memory usage scales linearly with the number of tokens and with the amount of memory needed for the attention layer. By quantizing the attention layer, a larger context can fit in memory.
-
 
 ## Quantization Formats
 
@@ -66,9 +65,3 @@ Memory usage scales linearly with the number of tokens and with the amount of me
   - Supported by the `SpQR` library.
   - The main page of the [`SpQR`](https://github.com/Vahe1994/SpQR) repository has a guide for quantizing to this format.
   - This quantization format works best when you have some of the model's original training data for calibration, though it is not required.
-
-## Quantization Techniques
-
-### Row-wise vs Block-wise Quantization
-
-#### 
