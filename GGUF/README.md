@@ -26,7 +26,7 @@ From [ikawrakow](https://github.com/ggerganov/llama.cpp/pull/1684), the image be
 
 ![Model size graphed against model perplexity](image-1.png)
 
-Quantization types are [Q2_K](./Q2_K.md), Q3_K, [Q4_K](./Q4_K.md), Q5_K, [Q6_K](./Q6_K.md), and Q8_K.
+Quantization types are [Q2_K](./Q2_K.md), Q3_K, [Q4_K](./Q4_K.md), Q5_K, [Q6_K](./Q6_K.md), and [Q8_K](./Q8_K.md).
 
 ### IQ_S (i-quants)
 
