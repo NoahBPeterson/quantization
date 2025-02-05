@@ -91,7 +91,7 @@ Since we have 8 blocks, the total quantized representation for the layer is:
 | Data |	Format |	Total Size in Bytes|
 |--------------|------------------------------------|------------|
 | Original Floating-Point Weights |	BF16 (16 bits) |	4096 bytes|
-| Quantized Weights (Q8_K) |	Q8_K |	2320 bytes
+| Quantized Weights (Q8_K) |	Q8_K (9.1 bits) |	2320 bytes
 
 
 Explanation of Q8_K Compression

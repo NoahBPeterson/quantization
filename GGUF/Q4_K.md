@@ -114,7 +114,7 @@ Since we have 8 super-blocks, the total quantized representation for the layer i
 | Data |	Format |	Total Size in Bytes|
 |--------------|------------------------------------|------------|
 | Original Floating-Point Weights |	BF16 (16 bits) |	4096 bytes|
-| Quantized Weights (Q4_K) |	Q4_K |	1152 bytes|
+| Quantized Weights (Q4_K) |	Q4_K (4.5 bits) |	1152 bytes|
 
 For Q4_K: 
 
