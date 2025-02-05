@@ -12,7 +12,7 @@ The `_0` suffix indicates that the quantization only has a block scale, but not 
 
 They all use Round-To-Nearest quantization, and have a block size of 32 weights. [llama.cpp/wiki/Tensor-Encoding-Schemes](https://github.com/ggerganov/llama.cpp/wiki/Tensor-Encoding-Schemes)
 
-Quantization types are [Q4_0](./Q4_0.md), [Q4_1](./Q4_1.md), Q5_0, Q5_1, Q8_0, and Q8_1.
+Quantization types are [Q4_0](./Q4_0.md), [Q4_1](./Q4_1.md), [Q5_0](./Q5_0.md), [Q5_1](./Q5_1.md), [Q8_0](./Q8_0.md), and [Q8_1](./Q8_1.md).
 
 ### QK_K (k-quants)
 
