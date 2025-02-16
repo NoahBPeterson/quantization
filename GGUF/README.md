@@ -39,7 +39,7 @@ They all use i-quantization rather than Round-To-Nearest quantization, and have 
 From [ikawrakow](https://github.com/ikawrakow/ik_llama.cpp/pull/83), this graph shows how well these three quantization formats maintain perplexity for a given bits-per-weight ratio. A value being lower on this graph indicates lower perplexity loss. A value being further to the right indicates that it uses more bits to store each weight.
 ![bits-per-weight graphed against perplexity loss vs FP16](image.png)
 
-Quantization types are IQ1_S, IQ1_M, IQ2_XXS, IQ2_XS, IQ2_S, IQ3_XXS, IQ3_S, IQ4_NL, and IQ4_XS.
+Quantization types are IQ1_S, IQ1_M, IQ2_XXS, IQ2_XS, IQ2_S, IQ3_XXS, IQ3_S, IQ4_NL, and [IQ4_XS](./IQ4_XS.md).
 
 ### Importance Matrix Generation
 
