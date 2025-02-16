@@ -3,7 +3,7 @@
 ## Overview
 
 IQ4_XS is a non‑linear quantization scheme that compresses weights to approximately 4.25 bits.
-Although the scheme is prefixed with “I,” it does not use an importance matrix. Instead, it computes per‑block scale factors using the squared values of the weight row. Rather than rounding weights to the nearest representable integer in 4 bits like the legacy quants, or k-quant rounding, weights are rounded to the nearest value of a fixed table called `kvalues_iq4nl`.
+It computes per‑block scale factors using the squared values of the weight row. Rather than rounding weights to the nearest representable integer in 4 bits like the legacy quants, or k-quant rounding, weights are rounded to the nearest value of a fixed table called `kvalues_iq4nl`.
 
 It offers better compression than Q4_K, with similar or slightly less loss.
 
@@ -71,10 +71,10 @@ For each super‑block:
  * Baseline Calculation:
    * `Baseline = (2 / (number of super-block weights)) × (sum of squares of super-block weights)`
 For each 32‑weight block:
- * If external quantization weights are provided:
+ * If an importance matrix is provided:
    * Each weight is processed as:
-      * `modified_weight[j] = external_weight[j] * sqrt(baseline + (weight[j])²)`
-   * This enables already-quantized weights to be re-quantized, adapting the already-quantized weights to the distribution of the original weights.
+      * `modified_weight[j] = quant_weights[j] * sqrt(baseline + (weight[j])²)`
+   * This is used to further lower quantization loss.
  * Otherwise:
    * Simply square each weight:
       * `modified_weight[j] = (weight[j])²`
