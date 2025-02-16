@@ -12,7 +12,7 @@ The `_0` suffix indicates that the quantization only has a block scale, but not 
 
 They all use Round-To-Nearest quantization, and have a block size of 32 weights. [llama.cpp/wiki/Tensor-Encoding-Schemes](https://github.com/ggerganov/llama.cpp/wiki/Tensor-Encoding-Schemes)
 
-Quantization types are [Q4_0](./Q4_0.md), [Q4_1](./Q4_1.md), [Q5_0](./Q5_0.md), [Q5_1](./Q5_1.md), [Q8_0](./Q8_0.md), and [Q8_1](./Q8_1.md).
+Quantization types are [Q4_0](./quants/Q4_0.md), [Q4_1](./quants/Q4_1.md), [Q5_0](./quants/Q5_0.md), [Q5_1](./quants/Q5_1.md), [Q8_0](./quants/Q8_0.md), and [Q8_1](./quants/Q8_1.md).
 
 ### QK_K (k-quants)
 
@@ -24,9 +24,9 @@ They all use k-quantization rather than Round-To-Nearest quantization, and have 
 
 From [ikawrakow](https://github.com/ggerganov/llama.cpp/pull/1684), the image below graphs perplexity and model size for many QK_K quantization types.
 
-![Model size graphed against model perplexity](image-1.png)
+![Model size graphed against model perplexity](./quants/image-1.png)
 
-Quantization types are [Q2_K](./Q2_K.md), [Q3_K](./Q3_K.md), [Q4_K](./Q4_K.md), [Q5_K](./Q5_K.md), [Q6_K](./Q6_K.md), and [Q8_K](./Q8_K.md).
+Quantization types are [Q2_K](./quants/Q2_K.md), [Q3_K](./quants/Q3_K.md), [Q4_K](./quants/Q4_K.md), [Q5_K](./quants/Q5_K.md), [Q6_K](./quants/Q6_K.md), and [Q8_K](./quants/Q8_K.md).
 
 ### IQ_S (i-quants)
 
@@ -37,9 +37,9 @@ Perplexity loss is lower for i-quants than for k-quants at the same bits-per-wei
 They all use i-quantization rather than Round-To-Nearest quantization, and have a super-block size of 256 weights, though some use 8 super-blocks of 32 blocks, and others use 16 super-blocks of 16 blocks. [llama.cpp/wiki/Tensor-Encoding-Schemes](https://github.com/ggerganov/llama.cpp/wiki/Tensor-Encoding-Schemes)
 
 From [ikawrakow](https://github.com/ikawrakow/ik_llama.cpp/pull/83), this graph shows how well these three quantization formats maintain perplexity for a given bits-per-weight ratio. A value being lower on this graph indicates lower perplexity loss. A value being further to the right indicates that it uses more bits to store each weight.
-![bits-per-weight graphed against perplexity loss vs FP16](image.png)
+![bits-per-weight graphed against perplexity loss vs FP16](./quants/image.png)
 
-Quantization types are IQ1_S, IQ1_M, IQ2_XXS, IQ2_XS, IQ2_S, IQ3_XXS, IQ3_S, IQ4_NL, and [IQ4_XS](./IQ4_XS.md).
+Quantization types are IQ1_S, IQ1_M, IQ2_XXS, IQ2_XS, IQ2_S, IQ3_XXS, IQ3_S, IQ4_NL, and [IQ4_XS](./quants/IQ4_XS.md).
 
 ### Importance Matrix Generation
 
@@ -47,4 +47,4 @@ An [importance matrix](https://github.com/ggerganov/llama.cpp/blob/master/exampl
 
 From ikawrakow, the following image shows perplexity loss graphed against bits-per-words for the legacy quants, k-quants, and i-quants, which all perform better with an imatrix: [llama.cpp#5747](https://github.com/ggerganov/llama.cpp/pull/5747)
 
-![llama.cpp#5747](image-2.png)
+![llama.cpp#5747](./quants/image-2.png)

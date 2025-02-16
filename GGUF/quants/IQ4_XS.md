@@ -7,7 +7,7 @@ Although the scheme is prefixed with “I,” it does not use an importance matr
 
 It offers better compression than Q4_K, with similar or slightly less loss.
 
-![llama.cpp#5747](image-3.png)
+![llama.cpp#5747](image.png)
 
 A fixed lookup table is used to map 4‑bit indices to the quantized values.
 
